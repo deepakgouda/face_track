@@ -1,3 +1,9 @@
+'''
+To-Do
+-Documentation
+-Add bounding box to the second face based on tha keypoints of p0_0 and p0_1
+ 
+'''
 import numpy as np
 import cv2
 face_cascade = cv2.CascadeClassifier('/usr/local/share/OpenCV/haarcascades/haarcascade_frontalface_default.xml')
