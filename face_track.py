@@ -24,7 +24,7 @@ cv2.waitKey(0)
 
 
 # params for ShiTomasi corner detection
-feature_params = dict( maxCorners = 500,
+feature_params = dict( maxCorners = 200,
                        qualityLevel = 0.03,
                        minDistance = 0.005,
                        blockSize = 10 )               #tune param
@@ -128,6 +128,8 @@ while(1):
     p1, st, err = cv2.calcOpticalFlowPyrLK(old_gray, frame_gray, p0, None, **lk_params)
 
     # Select good points
+    # good_new = p1
+    # good_old = p0
     good_new = p1[st==1]
     good_old = p0[st==1]
 
@@ -137,7 +139,7 @@ while(1):
         c,d = old.ravel()
         
         # mask = cv2.line(mask, (a,b),(c,d), color[i].tolist(), 2)
-        frame = cv2.circle(frame,(a,b),5,color[i].tolist(),-1)
+      	frame = cv2.circle(frame,(a,b),5,color[i].tolist(),-1)
         # frame = cv2.circle(frame,(a,b),5,(255,0,0),-1)
     img = cv2.add(frame,mask)
     rect_x = np.mean(p0.reshape(p0.shape[0],-1)[:,0])-faces_w/2
